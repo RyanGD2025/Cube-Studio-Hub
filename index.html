@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cube Studio Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+        body {
+            background: #151515;
+        }
+        
+        h1 {
+            background: linear-gradient(to left, rgb(20, 20, 20), rgb(30, 30, 30));
+            width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 0 32px 0 black;
+            color: white;
+            font-family: 'Work Sans';
+            font-weight: bolder;
+        }
+        
+        .projectsFrame {
+            background: #101010;
+            width: 400px;
+            height: 750px;
+            border-radius: 8px;
+        }
+        
+        #downloadAndroid {
+            background: #121212;
+            width: 400px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Work Sans';
+        }
+        
+        #downloadWindows {
+            background: #121212;
+            width: 400px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Work Sans';
+        }
+        
+        p {
+            font-family: 'Work Sans';
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Cube Studio Hub</h1></center>
+    <center><div class="projectsFrame">
+        <button id="downloadAndroid">Create Project in Android</button>
+        <p>or</p>
+        <button id="downloadWindows">Create Project in Windows 10/11</button>
+        <img src="/NewProject.png">
+        <p id="TextProject">create project</p>
+    </div></center>
+    <script>
+        function forceDownload(filePath) {
+            const a = document.createElement('a');
+            a.href = filePath;
+            a.download = filePath.split('/').pop(); 
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        document.getElementById("downloadAndroid").addEventListener("click", function() {
+            forceDownload("CubeStudioEditor.apk");
+        });
+
+        document.getElementById("downloadWindows").addEventListener("click", function() {
+            forceDownload("CubeStudioEditor.exe");
+        });
+    </script>
+</body>
+</html>
